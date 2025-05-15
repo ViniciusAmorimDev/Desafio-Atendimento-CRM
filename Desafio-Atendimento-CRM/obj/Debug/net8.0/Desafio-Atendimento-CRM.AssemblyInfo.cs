@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Desafio-Atendimento-CRM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0285056760da4ad5e6b6f6a6787f37eb9aeceb83")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7b4902e2559b8583ca9d8cc29d68b7b2ed9753f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Desafio-Atendimento-CRM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Desafio-Atendimento-CRM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

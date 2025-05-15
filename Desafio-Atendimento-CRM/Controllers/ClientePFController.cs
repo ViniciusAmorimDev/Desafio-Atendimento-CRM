@@ -1,5 +1,6 @@
 using Desafio_Atendimento_CRM.Data;
 using Desafio_Atendimento_CRM.Models;
+using Desafio_Atendimento_CRM.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,11 +10,11 @@ namespace Desafio_Atendimento_CRM.Controllers
     [Route("api/[controller]")]
     public class ClientePFController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IClienteService _clienteService;
 
-        public ClientePFController(AppDbContext context)
+        public ClientePFController(IClienteService clienteService)
         {
-            _context = context;
+            _clienteService = clienteService;
         }
 
         [HttpGet]
@@ -21,7 +22,8 @@ namespace Desafio_Atendimento_CRM.Controllers
         {
             try
             {
-                return await _context.ClientePF.ToListAsync();
+                var clientes = await _clienteService.GetAllAsync();
+                return Ok(clientes);
             }
             catch (Exception ex)
             {
@@ -34,10 +36,9 @@ namespace Desafio_Atendimento_CRM.Controllers
         {
             try
             {
-                var cliente = await _context.ClientePF
-                  .FirstOrDefaultAsync(c => c.ClientePfId == id);
+                var cliente = await _clienteService.GetByIdAsync(id);
                 if (cliente == null) return NotFound();
-                return cliente;
+                return Ok(cliente);
             }
             catch (Exception ex)
             {
@@ -50,15 +51,8 @@ namespace Desafio_Atendimento_CRM.Controllers
         {
             try
             {
-                if (cliente == null) return NotFound("Como não passado os dados do cliente corretamente não foi possivel cadastrar o clientee PF");
-                
-                /*var clientebanco = await _context.ClientePF
-                    .FirstOrDefaultAsync(c => c.Nome == cliente.Nome);
-                if (cliente.Nome == clientebanco.Nome) return NotFound();*/
-;
-                _context.ClientePF.Add(cliente);
-                await _context.SaveChangesAsync();
-                return CreatedAtAction(nameof(GetClientePFId), new { id = cliente.ClientePfId }, cliente);
+                var novoCliente = await _clienteService.CreateAsync(cliente);
+                return CreatedAtAction(nameof(GetClientePFId), new { id = novoCliente.ClientePfId }, novoCliente);
             }
             catch (Exception ex)
             {
@@ -71,16 +65,13 @@ namespace Desafio_Atendimento_CRM.Controllers
         {
             try
             {
-                if (id != cliente.ClientePfId) return BadRequest();
-
-                _context.Entry(cliente).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-
-                return NoContent();
+                var atualizado = await _clienteService.UpdateAsync(id, cliente);
+                if (atualizado == null) return NotFound();
+                return Ok(atualizado);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Não foi possivel editar o clientee PF: {ex.Message}");
+                return StatusCode(500, $"Não foi possivel editar o cliente PF: {ex.Message}");
             }
         }
 
@@ -89,12 +80,8 @@ namespace Desafio_Atendimento_CRM.Controllers
         {
             try
             {
-                var cliente = await _context.ClientePF.FindAsync(id);
-                if (cliente == null) return NotFound();
-
-                _context.ClientePF.Remove(cliente);
-                await _context.SaveChangesAsync();
-
+                var deletado = await _clienteService.DeleteAsync(id);
+                if (!deletado) return NotFound();
                 return NoContent();
             }
             catch (Exception ex)
