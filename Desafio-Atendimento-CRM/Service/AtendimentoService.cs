@@ -47,7 +47,7 @@ namespace Desafio_Atendimento_CRM.Service
                     throw new ArgumentException("Id do Atendimento não encontrado");
                 }
 
-                var AtendimentoDesativado = await DesativarAsync(id);
+                var AtendimentoDesativado = await _repository.DesativarAtendimentoAsync(id);
                 if (AtendimentoDesativado)
                 {
                     return true;

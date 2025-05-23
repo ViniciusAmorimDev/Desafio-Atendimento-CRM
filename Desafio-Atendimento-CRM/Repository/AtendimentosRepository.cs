@@ -32,7 +32,7 @@ namespace Desafio_Atendimento_CRM.Repository
             await _context.SaveChangesAsync();
             return atendimento;
         }
-        public async Task<bool> DesativarAsync(int id)
+        public async Task<bool> DesativarAtendimentoAsync(int id)
         {
             var atendimento = await _context.Atendimentos.FirstOrDefaultAsync(x => x.AtendimentosId == id);
             atendimento.Status = false;

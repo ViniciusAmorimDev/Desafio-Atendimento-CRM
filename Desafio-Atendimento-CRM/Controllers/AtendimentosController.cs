@@ -80,7 +80,7 @@ namespace Desafio_Atendimento_CRM.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("ativa/{id}")]
         public async Task<IActionResult> AtivaAtendimentoId(int id)
         {
             try
@@ -95,21 +95,18 @@ namespace Desafio_Atendimento_CRM.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpPut("inativa/{id}")]
         public async Task<IActionResult> DesativarAtendimentoId(int id)
         {
             try
             {
-                var atendimento = await _atendimentoService.GetByIdAsync(id);
-                if (atendimento == null) return NotFound("Atendimento não encontrado.");
-
-                var deletado = await _atendimentoService.DesativarAsync(id);
-                if (!deletado) return NotFound();
-                return NoContent();
+                var atualizado = await _atendimentoService.DesativarAsync(id);
+                if (atualizado == null) return NotFound();
+                return Ok(atualizado);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Não foi possivel excluir o atendimento solicitado: {ex.Message}");
+                return StatusCode(500, $"Não foi possivel editar o atendimento solicitado: {ex.Message}");
             }
         }
     }

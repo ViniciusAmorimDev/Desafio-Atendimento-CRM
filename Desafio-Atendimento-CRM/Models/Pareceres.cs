@@ -9,14 +9,14 @@ namespace Desafio_Atendimento_CRM.Models
         public int PareceresId { get; set; }
         public string Titulo { get; set; }
         public string Conteudo { get; set; }
-        public bool Status { get; set; }
-
-        public int AtendimentosId { get; set; } // <- Chave estrangeira 
+        public int AtendimentosId { get; set; } 
         [ForeignKey("AtendimentosId")]
-        public Atendimentos Atendimento { get; set; }
+        //public Atendimentos Atendimento { get; set; }
         
-        public int UsuariosId { get; set; } // <- Chave estrangeira 
+        public int UsuariosId { get; set; }
         [ForeignKey("UsuariosId")]
-        public Usuarios Usuario { get; set; }
+
+        public bool Status { get; set; }
+        //public Usuarios Usuario { get; set; }
     }
 }

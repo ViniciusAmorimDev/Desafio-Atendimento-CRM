@@ -94,9 +94,25 @@
   },
   {
     "ContainingType": "Desafio_Atendimento_CRM.Controllers.AtendimentosController",
-    "Method": "DeleteAtendimentoId",
-    "RelativePath": "api/Atendimentos/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "AtivaAtendimentoId",
+    "RelativePath": "api/Atendimentos/ativa/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Desafio_Atendimento_CRM.Controllers.AtendimentosController",
+    "Method": "DesativarAtendimentoId",
+    "RelativePath": "api/Atendimentos/inativa/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

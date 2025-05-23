@@ -8,7 +8,7 @@ namespace Desafio_Atendimento_CRM.Repository
         Task<Atendimentos> GetByIdAsync(int id);
         Task<Atendimentos> CreateAsync(Atendimentos atendimento);
         Task<Atendimentos> UpdateAsync(int id, Atendimentos atendimento);
-        Task<bool> DesativarAsync(int id);
+        Task<bool> DesativarAtendimentoAsync(int id);
         Task<bool> AtivarAtendimentoAsync(int id);
     }
 }
