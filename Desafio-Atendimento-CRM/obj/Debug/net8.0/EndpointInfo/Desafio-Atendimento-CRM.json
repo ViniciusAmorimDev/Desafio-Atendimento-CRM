@@ -167,8 +167,33 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/Atendimentos/ativa/{id}": {
+      "put": {
+        "tags": [
+          "Atendimentos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Atendimentos/inativa/{id}": {
+      "put": {
         "tags": [
           "Atendimentos"
         ],
@@ -767,9 +792,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "cliente": {
-            "$ref": "#/components/schemas/ClientePF"
-          },
           "dataAtendimento": {
             "type": "string",
             "format": "date-time",
@@ -778,16 +800,6 @@
           "usuariosId": {
             "type": "integer",
             "format": "int32"
-          },
-          "usuario": {
-            "$ref": "#/components/schemas/Usuarios"
-          },
-          "parecer": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Pareceres"
-            },
-            "nullable": true
           },
           "status": {
             "type": "boolean"
@@ -845,22 +857,16 @@
             "type": "string",
             "nullable": true
           },
-          "status": {
-            "type": "boolean"
-          },
           "atendimentosId": {
             "type": "integer",
             "format": "int32"
-          },
-          "atendimento": {
-            "$ref": "#/components/schemas/Atendimentos"
           },
           "usuariosId": {
             "type": "integer",
             "format": "int32"
           },
-          "usuario": {
-            "$ref": "#/components/schemas/Usuarios"
+          "status": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

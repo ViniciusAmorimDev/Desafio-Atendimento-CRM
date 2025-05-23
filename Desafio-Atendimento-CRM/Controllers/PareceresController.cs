@@ -68,8 +68,6 @@ namespace Desafio_Atendimento_CRM.Controllers
         {
             try
             {
-                if (id != parecer.PareceresId) return BadRequest();
-
                 var atualizado = await _parecerService.UpdateAsync(id, parecer);
                 if (atualizado == null) return NotFound();
                 return Ok(atualizado);

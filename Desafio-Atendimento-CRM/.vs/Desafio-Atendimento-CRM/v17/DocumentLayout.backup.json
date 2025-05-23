@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Desafio-Atendimento-CRM\\Desafio-Atendimento-CRM\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{09070701-2559-43A1-89E6-59B5C53F3A27}|Desafio-Atendimento-CRM.csproj|c:\\desafio-atendimento-crm\\desafio-atendimento-crm\\controllers\\atendimentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09070701-2559-43A1-89E6-59B5C53F3A27}|Desafio-Atendimento-CRM.csproj|solutionrelative:controllers\\atendimentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AtendimentosController.cs",
-              "DocumentMoniker": "C:\\Desafio-Atendimento-CRM\\Desafio-Atendimento-CRM\\Controllers\\AtendimentosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AtendimentosController.cs",
-              "ToolTip": "C:\\Desafio-Atendimento-CRM\\Desafio-Atendimento-CRM\\Controllers\\AtendimentosController.cs",
-              "RelativeToolTip": "Controllers\\AtendimentosController.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAiwFcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T01:29:10.68Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

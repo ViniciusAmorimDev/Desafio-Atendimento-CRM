@@ -30,10 +30,10 @@ namespace Desafio_Atendimento_CRM.Service
 
         public async Task<Pareceres> UpdateAsync(int id, Pareceres parecer)
         {
-            var parecerExistente = await _repository.GetByIdAsync(id);
+            /*var parecerExistente = await _repository.GetByIdAsync(id);
 
             if (parecerExistente == null)
-                throw new Exception("Parecer não encontrado.");
+                throw new Exception("Parecer não encontrado.");*/
 
             parecer.PareceresId = id;
             return await _repository.UpdateAsync(id, parecer);

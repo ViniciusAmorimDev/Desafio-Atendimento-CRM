@@ -14,15 +14,15 @@ namespace Desafio_Atendimento_CRM.Models
 
         public int ClienteId { get; set; }
         [ForeignKey("ClienteId")]
-        public ClientePF Cliente { get; set; }
+        //public ClientePF Cliente { get; set; }
 
         public DateTime? DataAtendimento { get; set; }
 
         public int UsuariosId { get; set; }
         [ForeignKey("UsuariosId")]
-        public Usuarios Usuario { get; set; }
+        //public Usuarios Usuario { get; set; }
 
-        public ICollection<Pareceres> Parecer { get; set; }
+        //public ICollection<Pareceres>? Parecer { get; set; }
 
         public bool Status {  get; set; }
 
